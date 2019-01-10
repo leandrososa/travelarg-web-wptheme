@@ -1,0 +1,72 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+//agregar padding uniforme
+@mixin tpadding{
+
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+//centrar imagees fondo
+
+@mixin bg-center{
+
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+//traveltag
+
+@mixin traveltag($colortexto, $colorfondo){
+
+	font-family: 'AmaticSC', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: -5px;
+    padding: 0px 5px;
+    border: 2px solid $colortexto;
+	color: $colortexto;
+	
+	&:after{
+
+		content: '';
+		position: absolute;
+		width: 100%;
+		left: -4px;
+		top: -4px;
+		height: 100%;
+		background: $colorfondo;
+		z-index: -2;
+	}
+}
