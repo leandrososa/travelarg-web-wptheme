@@ -1,0 +1,437 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+.container{
+
+	width: 1170px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.home-section{
+
+	padding: 40px 0px;
+}
+
+.fold{
+
+	background-image: url(img/fold-bg.jpg);
+	@include bg-center;
+	height: calc(100vh - 165px);
+	position: relative;
+
+	.fold-busqueda{
+
+		position: relative;
+		height: calc(100% - 290px);
+
+		ul.home-continentes {
+
+			background-color: $bl;
+			padding: 10px 30px;
+			border-radius: 90px;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%,50%);
+			z-index: 2;
+			width: 90%;
+
+			li{
+
+				display: inline-block;
+				border-right: 1px solid rgba(0,0,0,.4);
+				padding: 10px 20px;
+				width: 16%;
+				font-size: 0px;
+    			text-align: center;
+
+				&:last-child{
+
+					border-right: none;
+				}
+
+				a{
+					font-weight: bold;
+					font-size: 32px;
+					font-family: 'Amatic SC', sans-serif;
+					text-decoration: none;
+					color: $verde;
+				}
+			}
+		}
+	}
+
+	.fold-categorias{
+
+		position: absolute;
+		width: 100%;
+		bottom:0;
+		height: 290px;
+
+		ul.categorias {
+			margin-top: 100px;
+
+			li {
+				display: inline-block;
+
+				a {
+					font-family: 'Amatic SC', sans-serif;
+					font-weight: bold;
+					font-size: 28px;
+					text-decoration: none;
+					display: inline-block;
+					color: $bl;
+					width: 250px;
+					height: 120px;
+					margin: 0px 10px;
+					border-radius: 20px;
+					position:relative;
+					@include bg-center;
+
+					span{
+
+						display: inline-block;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%,-50%);
+						text-align: center;
+						line-height: 28px;
+					}
+				}
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 80px;
+				background: linear-gradient(to right, rgba(28,188,180,0) 0%,rgba(28,188,180,1) 100%);
+			}
+		}
+	}
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li{list-style-type: none;}
+
+/* fondos */
+
+.bg-magenta{
+
+	background-color: $magenta;
+}
+
+.bg-agua{
+
+	background-color: $agua;
+}
+
+.bg-celeste{
+
+	background-color: $celeste;
+}
+
+.bg-amarillo{
+
+	background-color: $amarillo;
+}
+
+.bg-verde{
+
+	background-color: $verde;
+}
+
+.bg-rojo{
+
+	background-color: $rojo;
+}
+
+.bl{
+
+	color: $bl;
+}
+
+
+
+/* titulos */
+
+h3.misc-puntos {
+    margin: 0px;
+    padding-top: 14px;
+    font-size: 24px;
+	font-weight: 500;
+	position: relative;
+	
+	&:after{
+
+		content: '';
+		background-image: url(img/misc-puntos.svg);
+		position: absolute;
+		width: 159px;
+		height: 50px;
+		left: -81px;
+		top: 17px;
+	}
+
+	&.bl{
+
+		color: $bl;
+
+		&:after{
+
+			background-image: url(img/misc-puntos-bl.svg);
+		}
+	}
+}
+
+p.misc-puntos-bajada {
+    margin: 0;
+}
+
+/* home */
+
+.form-control.buscador-destino{
+
+	background: $bl;
+	padding: 25px 25px 25px 50px;
+	border-radius: 4px;
+	display: inline-block;
+	width: 60%;
+	cursor: hand;
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	top: 45%;
+	transform: translate(-50%, -50%);
+
+	input{
+
+		font-size: 32px;
+		width: 100%;
+		border: none;
+		outline: none;
+		cursor: hand;
+		cursor: pointer;
+	}
+
+}
+
+.cont-resenas {
+
+    font-size: 0px;
+    width: 75%;
+    display: inline-block;
+    position: absolute;
+    right:0;
+	top: 20px;
+	
+	.resena {
+
+		background:white;
+		color: black;
+		width: calc(33.33% - 20px);
+		margin: 0 10px;
+		display: inline-block;
+		font-size: 14px;
+		position: relative;
+		padding: 76px 10px 0 10px;
+		
+		&:after{
+
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transform: translateY(100%);
+			width: 100%;
+			height: 80px;
+			background-image: url(img/cinta-terminacion.svg);
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		.conj-img-resena {
+			width: 150px;
+			height: 80px;
+			background-color: red;
+			position: absolute;
+			left: 50%;
+			top: -20px;
+			transform: translateX(-50%) rotate(-2deg);
+			@include bg-center;
+
+			.resena-categoria{
+
+				@include traveltag($bl, $verde);
+			}
+		}
+
+		.titulo-resena {
+
+			font-size: 16px;
+			margin: 0px;
+		}
+
+		.conj-estrellas{
+
+			padding: 5px 0;
+
+			.estrella {
+				background-image: url(img/estrella.svg);
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+
+				&.vacio{
+
+					opacity: .3;
+				}
+			}
+		}
+
+		.extracto-resena {
+			margin: 0 0 10px 0;
+			font-style: italic;
+		}
+		
+		.traveler-avatar{
+
+			font-size: 12px;
+		}
+	}
+}
+
+.cont-articulos{
+
+	font-size: 0px;
+	margin-top: 24px;
+	
+	.articulo{
+
+		height: 240px;
+		display: inline-block;
+		width: calc(33.33% - 20px);
+		@include bg-center;
+		font-size: 16px;
+		position: relative;
+		vertical-align: top;
+		margin: 0px 10px 20px 10px;
+
+		&:after{
+
+			content: '';
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+			background-color: rgba(0,0,0,.4);
+		}
+
+		&.doble{
+
+			width: calc(66.66% - 20px)
+		}
+	}
+
+	.traveltag{
+
+		@include traveltag($bl, $magenta);
+		z-index: 2;
+		bottom: 57px;
+		transform: rotate(-2deg);
+	}
+
+	h3{
+
+		
+		color: white;
+		position: absolute;
+		bottom: 15px;
+		left: 15px;
+		margin: 0;
+		
+	}
+}
+
+.cont-livestream-pasado{
+
+	width: 50%;
+	height: 250px;
+	background-image: url(img/livestreams/D8B.jpg);
+	@include bg-center;
+	position: relative;
+
+	&:before{
+
+		background-color: rgba(0,0,0,.4);
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+	}
+
+	.traveltag{
+
+		@include traveltag($bl, $rojo);
+		z-index: 2;
+		transform: rotate(-2deg);
+		bottom: auto;
+		top: 20px;
+	}
+
+	h3 {
+		position: absolute;
+		bottom: 15px;
+		margin: 0;
+		left: 15px;
+	}
+}
+
+.cont-reservas{
+
+	.reserva{
+
+		
+	}
+}
+
+@import "lists";
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+@import "tables";
